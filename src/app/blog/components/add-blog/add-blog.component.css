@@ -1,0 +1,14 @@
+.form-container {
+    max-width: 500px;
+    margin: 50px auto auto;
+  }
+
+  .error-text {
+    color: red;
+    font-size: 14px;
+    padding-top: 5px;
+  }
+  
+  .error-text .strong {
+      color: red;
+  }

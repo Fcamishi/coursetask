@@ -16,11 +16,12 @@ export class InterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = sessionStorage.getItem('crud-token');
+    const token = sessionStorage.getItem('access_token');
+    console.log('Token', token)
 
     if (token) {
       const cloned = req.clone({
-        headers: req.headers.set('Authorization', 'Bearer ' + token),
+        headers: req.headers.set('Authorization',token),
       });
 
       return next.handle(cloned);

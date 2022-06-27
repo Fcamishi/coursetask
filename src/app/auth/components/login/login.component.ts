@@ -24,10 +24,10 @@ export class LoginComponent {
     private authService: AuthService
   ) {}
 
-  getInvalidInput(field: string, validation: string = 'required') {
-    const control = this.loginForm.get(field);
-    return control?.hasError(validation) && control.touched;
-  }
+  // getInvalidInput(field: string, validation: string = 'required') {
+  //   const control = this.loginForm.get(field);
+  //   return control?.hasError(validation) && control.touched;
+  // }
 
   onSubmit() {
     this.isSubmited = true;
@@ -43,9 +43,7 @@ export class LoginComponent {
       )
       .subscribe({
         next: () => {
-          // this.toast.success('You are now logged in!!!', 'Login successful!!');
-          // this.router.navigate(['blog']);
-          console.log('Login Form', this.loginForm.value);
+          this.router.navigate(['blog']);
         },
         error: (err: { error: any }) => {
           console.log('Error', err);

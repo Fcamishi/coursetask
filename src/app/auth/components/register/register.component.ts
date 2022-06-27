@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
     email: ['', [Validators.email, Validators.required]],
     password: ['', [Validators.required]],
   });
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -41,7 +42,7 @@ export class RegisterComponent implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log('RegisterForm', this.registerForm.value);
+          this.router.navigate(['auth/login']);
         },
         error: (err) => {
           console.log('Error', err);

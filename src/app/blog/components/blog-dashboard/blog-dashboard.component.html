@@ -1,0 +1,42 @@
+<header>
+    <div class="nav container">
+      <a href="#" class="logo">Bl<span>og</span></a>
+
+      <div>
+        <a href="#" class="login">LogOut</a>
+        <a class="login" routerLink="/add-blog">Add a blog post</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Home -->
+  <section class="home" id="home">
+    <div class="home-text container">
+      <div class="home-title">
+        <h2 class="home-title">The Blog</h2>
+        <span class="home-subtitle"> Your source of great content</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts -->
+
+  <section class="post container">
+    <div class="post-box" *ngFor="let post of data.list">
+      <img [src]="post.imageUrl" alt="Blog Post" class="post-img" />
+      <p class="post-description">
+        {{post.description}}
+      </p>
+    </div>
+  </section>
+
+  <div class="footer container">
+    <p>&#169; Fatjon Camishi All Rights Reserved</p>
+
+    <div class="social">
+      <a href="" class="bx bxl-facebook"></a>
+      <a href="" class="bx bxl-twitter"></a>
+      <a href="" class="bx bxl-instagram"></a>
+      <a href="" class="bx bxl-linkedin"></a>
+    </div>
+  </div>

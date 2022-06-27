@@ -1,0 +1,15 @@
+<div class="text-center my-5">
+  <h2>Add a new blog</h2>
+</div>
+
+<form [formGroup]="addForm" (ngSubmit)="onAddBlog()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Blog Description</label>
+    <textarea formControlName="description" class="form-control" cols="30" rows="10"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input formControlName="imageUrl" type="file">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

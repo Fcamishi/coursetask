@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddBlogComponent } from './blog/components/add-blog/add-blog.component';
+import { BlogDashboardComponent } from './blog/components/blog-dashboard/blog-dashboard.component';
 
 const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: 'blog', component:BlogDashboardComponent
+  },
+  {
+    path: 'add-blog', component:AddBlogComponent
+  }
 ];
 
 @NgModule({
