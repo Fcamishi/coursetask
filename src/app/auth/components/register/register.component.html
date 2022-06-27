@@ -1,0 +1,14 @@
+<div style="text-align: center">
+      <h1 class="heading-primary">Register Page</h1>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div>
+            <input placeholder="Name" formControlName="firstName">
+            <input color="warn" matInput placeholder="Last Name" formControlName="lastName">
+            <input  placeholder="Email" formControlName="email">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+          <button class="register-button" mat-flat-button color="warn" [disabled]="registerForm.invalid || isSubmited"
+            type="submit">Register</button>
+        </div>
+      </form>
+  </div>
+  
