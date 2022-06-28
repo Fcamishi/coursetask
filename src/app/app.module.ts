@@ -12,6 +12,7 @@ import { ViewBlogComponent } from './blog/components/view-blog/view-blog.compone
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InterceptorService } from './services/interceptor.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InterceptorService } from './services/interceptor.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },],
+  providers: [ JwtHelperService, {provide: JWT_OPTIONS, useValue:JWT_OPTIONS},
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

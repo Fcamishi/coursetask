@@ -1,15 +1,18 @@
-<div class="text-center my-5">
-  <h2>Add a new blog</h2>
+<div class="container">
+  <div class="text-center my-5">
+    <h2>Add a new blog</h2>
+  </div>
+  
+  <form [formGroup]="addForm" (ngSubmit)="onAddBlog()" style="text-align: center">
+    <div>
+      <label style="margin: 10px;" for="exampleInputEmail1" class="form-label"><strong>Blog Description</strong></label>
+      <textarea formControlName="description" class="form-control" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+      <label style="margin: 10px;" for="image" class="form-label"><strong>Image</strong></label>
+      <input formControlName="imageUrl" type="file">
+    </div>
+    <button style="margin: 10px;" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
 </div>
-
-<form [formGroup]="addForm" (ngSubmit)="onAddBlog()">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Blog Description</label>
-    <textarea formControlName="description" class="form-control" cols="30" rows="10"></textarea>
-  </div>
-  <div class="mb-3">
-    <label for="image" class="form-label">Image</label>
-    <input formControlName="imageUrl" type="file">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>

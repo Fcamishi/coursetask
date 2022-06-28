@@ -1,15 +1,17 @@
-<header>
+  <!-- Home -->
+  <header>
     <div class="nav container">
       <a href="#" class="logo">Bl<span>og</span></a>
-
       <div>
-        <a href="#" class="login">LogOut</a>
-        <a class="login" routerLink="/add-blog">Add a blog post</a>
+        <a  *ngIf="!isAuth()" class="login" routerLink="/auth/login">Login</a>
+        <a *ngIf="isAuth()" class="login" routerLink="/add-blog">Add a blog post</a>
+        <a *ngIf="isAuth()" href="#" class="login" (click)="logOut()">LogOut</a>
       </div>
     </div>
   </header>
+<router-outlet></router-outlet>
 
-  <!-- Home -->
+
   <section class="home" id="home">
     <div class="home-text container">
       <div class="home-title">

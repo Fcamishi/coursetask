@@ -1,13 +1,14 @@
 <div class="container">
     
       <h1 class="heading-primary">Login Page</h1>
-      <form color="warn" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-container">
          
             <input placeholder="Email" formControlName="email">
   
             <input style="margin:10px"  placeholder="Password" type="password" formControlName="password">
-        
+
+            <a routerLink="/auth/register">Register now</a>
 
           <button class="login-button" m color="warn" [disabled]='!loginForm.valid || isSubmited'
             type="submit">Login</button>

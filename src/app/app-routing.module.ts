@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddBlogComponent } from './blog/components/add-blog/add-blog.component';
 import { BlogDashboardComponent } from './blog/components/blog-dashboard/blog-dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,7 +13,12 @@ const routes: Routes = [
     path: 'blog', component:BlogDashboardComponent
   },
   {
-    path: 'add-blog', component:AddBlogComponent
+    path: 'add-blog', component:AddBlogComponent, canActivate:[AuthGuard]
+  },
+  {
+   path:'',
+   redirectTo:'blog', 
+   pathMatch:'full'
   }
 ];
 

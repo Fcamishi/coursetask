@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
 
 import { take } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 
 interface Payload {
@@ -20,7 +22,7 @@ const initState: Payload={page:1, size:10, description:'' };
 export class BlogDashboardComponent implements OnInit {
   data:any = []
 
-  constructor( private blogService: BlogService ) {  }
+  constructor( private blogService: BlogService, public authService: AuthService,  private router:Router ) {  }
 
   ngOnInit(): void {
     this.fetchBlogs()
@@ -34,4 +36,17 @@ export class BlogDashboardComponent implements OnInit {
     })
   }
 
+  
+  logOut () {
+    this.authService.logout()
+    this.router.navigate(['auth/login'])
+  }
+
+  isAuth() {
+    if(this.authService.isAuthenticated() ===false) {
+      return false
+    } else {
+      return true
+    }
+  }
 }
